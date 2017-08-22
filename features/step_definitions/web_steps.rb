@@ -7,5 +7,5 @@ Given /^I have entered "([^"]*)" into the "([^"]*)" field$/ do |text, field|
 end
 
 Then /^I should see "([^"]*)"$/ do |text|
-  expect(page).to have_content "cucumber bd examples"
+  expect(page).to have_content "cucumber bdd examples"
 end
