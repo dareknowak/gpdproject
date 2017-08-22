@@ -3,6 +3,9 @@ source "https://rubygems.org"
 
 git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
-# gem "rails"
-gem 'cucumber'
-gem 'rspec'
+group(:test) do
+  gem 'cucumber'
+  gem 'capybara'
+  gem 'rspec'
+  gem 'selenium-webdriver'
+end
