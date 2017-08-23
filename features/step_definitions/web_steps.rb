@@ -7,5 +7,6 @@ Then /^I should see "([^"]*)"$/ do |text|
 end
 
 When /^I click the button/ do
-  find(:xpath, "[.//@id='OB_OU1652107170']").click
+  find(:xpath, "//button[contains(@id,'OB_OU1652107170')]").click
+  sleep 15
 end

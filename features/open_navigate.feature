@@ -7,4 +7,4 @@ Feature: Enter
     Given I am on the football page
     Then I should see "Football Highlights"
 #    Then I should see "Liverpool vs Hoffenheim"
-    When I click on
+    When I click the button
