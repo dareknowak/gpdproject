@@ -17,5 +17,6 @@ end
 When /^I set the bet/ do
   find(:xpath, "//div[contains(@id,'single-bet_1660538324L')]")
   fill_in 'stake-input__1660538324L', :with => '0.05'
+  click_button('Place Bet')
   sleep 5
 end

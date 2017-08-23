@@ -9,4 +9,4 @@ Feature: Enter
     When I click the button
     Then I should see "Hoffenheim @ 4/1"
     When I set the bet
-    Then I should see "To return:"
+    Then I should see "You must be logged in to place a bet, please log in and try again"
