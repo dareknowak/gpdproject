@@ -7,13 +7,13 @@ Cucumber/capybara test code for williamhill, set a bet etc.
 
 What things you need to install the software and how to install them
 
-Install ruby >=2.2.2 with ruby version manager, see:
+Install ruby >=2.2.2 with e.g. ruby version manager, see:
 https://rvm.io/rvm/install
 ```
 rvm install ruby 2.2.2
 ```
-Although ghe Gemfile is provided withing the cloned project you should install
-gems with the following, issue following from the cloned project root directory, see:
+Although the Gemfile is provided within the cloned project you should install
+gems with the command, issue following from the cloned project root directory, see:
 http://bundler.io/v1.15/man/bundle-install.1.html
 ```
 bundle install
