@@ -30,10 +30,12 @@ cucumber features/{featurename}.feature
 ```
 
 ## Test environment
+```
 Ubuntu 14.04 64bit
 JDK Java 64bit 1.7.0_55
 ruby 2.4.1p111 (2017-03-22 revision 58053) [x86_64-linux]
 rvm 1.29.2 (latest)
 geckodriver 0.18.0
 ffox 55.0.2 (64-bit) ubuntu
+```
 
