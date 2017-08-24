@@ -7,19 +7,16 @@ Then /^I should see "([^"]*)"$/ do |text|
 end
 
 When /^I click the button/ do
-  # find(:xpath, "//button[contains(@id,'OB_OU1660538324')]", :wait => 5).click
-  # all returns an array with elements (0 is first value in the array), first child find element in first row,
-  # then click is executed, I've set 5 to wait a bit
-  # space between .btmarket__selection:first-child and .btn.betbutton.oddsbutton means that the element will be taken from the next line
+  # Here I had to fiddle a bit with busy indicator that caused sometimes issues with running next lines of test, so I added css and wait time up to 10
+  find(:css, "#betslip-message-empty", :wait => 10)
+  # All returns an array with elements (0 is first value in the array), first child find element in first row,
+  # then click is fired, I've set up to 5 to wait a bit. Wait and sleep are a bit brutal, I think it would be wiser to find some different approach.
+  # Whitespace between .btmarket__selection:first-child and .btn.betbutton.oddsbutton means that the element after whitespace will be taken from the next line
   all(:css, ".btmarket__selection:first-child .btn.betbutton.oddsbutton", :wait => 5)[0].click
-# Would be 'osom' to replace sleep with smarter approach
-  sleep 5
 end
 
-# Find form field that contains provided id and set a bet with 0.05 value
+# Again, as above, find fired on css from the set of divs etc. then I set the form with 0.05 value
 When /^I set the bet/ do
-  find(:xpath, "//div[contains(@id,'single-bet_1660538324L')]")
-  fill_in 'stake-input__1660538324L', :with => '0.05'
+  find(:css, ".betslip-selection__stake-container.betslip-selection__stake-container--single input").set('0.05')
   click_button('Place Bet')
-  sleep 5
 end

@@ -1,6 +1,6 @@
 # Automated test for williamhill.com
 
-Cucumber/capybara test code for williamhill, set a bet etc.
+Cucumber/capybara tests POC for williamhill.com
 ## Getting Started
 
 ### Prerequisites and installing
