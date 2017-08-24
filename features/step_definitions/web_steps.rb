@@ -6,9 +6,12 @@ Then /^I should see "([^"]*)"$/ do |text|
   expect(page).to have_content "Football Highlights"
 end
 
-# Select exact match - provided by ID, for Home in this case and do the click so the bet field form appears on the top right
 When /^I click the button/ do
-  find(:xpath, "//button[contains(@id,'OB_OU1660538324')]").click
+  # find(:xpath, "//button[contains(@id,'OB_OU1660538324')]", :wait => 5).click
+  # all returns an array with elements (0 is first value in the array), first child find element in first row,
+  # then click is executed, I've set 5 to wait a bit
+  # space between .btmarket__selection:first-child and .btn.betbutton.oddsbutton means that the element will be taken from the next line
+  all(:css, ".btmarket__selection:first-child .btn.betbutton.oddsbutton", :wait => 5)[0].click
 # Would be 'osom' to replace sleep with smarter approach
   sleep 5
 end
