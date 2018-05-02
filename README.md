@@ -16,6 +16,9 @@ Although the Gemfile is provided within the cloned project you should install
 gems with the command, issue following from the cloned project root directory, see:
 http://bundler.io/v1.15/man/bundle-install.1.html
 ```
+```
+gem install bundler
+```
 bundle install
 ```
 Make sure geckodriver is available on your path, download it add to PATH, see:
