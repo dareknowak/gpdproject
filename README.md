@@ -23,7 +23,8 @@ bundle install
 ```
 Make sure geckodriver is available on your path, download it add to PATH, see:
 https://github.com/mozilla/geckodriver/releases
-
+```
+geckodriver has been copied to /usr/local/bin
 
 ## Running the tests
 
