@@ -1,12 +1,9 @@
-Feature: Visit the sports.williamhill.com
-  In order to set a bet for test purposes
-  As a visitor without account
-  I want to select some event, place a bet and check that it has been done (partially)
+Feature: Search on diki.pl dictionary
+  In order to find Polish translations of English words
+  As a visitor
+  I want to search for a word and verify it has the expected translation
 
-  Scenario: Navigate to football subpage and place a bet
-    Given I am on the football page
-    Then I should see "Football Highlights"
-    When I click the button
-    Then I should see "90 Minutes"
-    When I set the bet
-    Then I should see "You must be logged in to place a bet, please log in and try again"
+  Scenario: Search for 'ruffle' and verify 'mankiet' appears in translations
+    Given I am on the diki.pl homepage
+    When I search for "ruffle"
+    Then I should see "mankiet" on the page
