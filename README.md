@@ -1,45 +1,65 @@
-# Automated test for williamhill.com
+# Automated test for diki.pl
 
-Cucumber/capybara tests POC for williamhill.com
-## Getting Started
+Cucumber/Capybara/Selenium tests for diki.pl — searches for an English word and verifies the Polish translation appears in the results.
 
-### Prerequisites and installing (in a nutshell)
+## What it does
 
-What things you need to install the software and how to install them
+1. Opens https://www.diki.pl in Chrome
+2. Accepts the Cookiebot cookie consent popup ("Akceptuj wszystko")
+3. Searches for the word **ruffle**
+4. Asserts that **mankiet** appears somewhere on the results page
 
-Install ruby >=2.2.2 with e.g. ruby version manager, see:
-https://rvm.io/rvm/install
+## Prerequisites
+
+### Ruby
+
+Uses the system Ruby (2.6+). No version manager required.
+
+### ChromeDriver
+
+ChromeDriver must match your installed Chrome version. Download the matching version from:
+https://googlechromelabs.github.io/chrome-for-testing/
+
+Place the binary at `~/bin/chromedriver` and make it executable:
+
+```bash
+mkdir -p ~/bin
+cp /path/to/chromedriver ~/bin/chromedriver
+chmod +x ~/bin/chromedriver
+xattr -d com.apple.quarantine ~/bin/chromedriver  # remove macOS Gatekeeper block
 ```
-rvm install ruby 2.2.2
+
+### Gems
+
+Install dependencies into the project's `vendor/bundle`:
+
+```bash
+bundle config --local force_ruby_platform true
+bundle install --path vendor/bundle
 ```
-Although the Gemfile is provided within the cloned project you should install
-gems with the command, issue following from the cloned project root directory, see:
-http://bundler.io/v1.15/man/bundle-install.1.html
-```
-gem install bundler
-```
-```
-bundle install
-```
-Make sure geckodriver is available on your path, download it add to PATH, see:
-https://github.com/mozilla/geckodriver/releases
-```
-geckodriver has been copied to /usr/local/bin
 
 ## Running the tests
 
-From the root directory issue
+From the project root:
+
+```bash
+bundle exec cucumber
 ```
-cucumber features/{featurename}.feature 
+
+Run a specific feature file:
+
+```bash
+bundle exec cucumber features/open_navigate.feature
 ```
 
 ## Test environment
-```
-Ubuntu 14.04 64bit, Lubuntu 16.04lts 64bit
-JDK Java 64bit 1.7.0_55, JDK Java 64bit 1.8.0_171
-ruby 2.4.1p111 (2017-03-22 revision 58053) [x86_64-linux]
-rvm 1.29.2, rvm 1.29.3
-geckodriver 0.18.0, geckodriver 0.20.1
-ffox 55.0.2 (64-bit), ffox 59.0.2 (64-bit)
-```
 
+```
+macOS (Apple Silicon / arm64)
+Google Chrome 146.x
+ChromeDriver 146.x (from Chrome for Testing)
+Ruby 2.6.x (system)
+cucumber 7.1.0
+capybara 3.36.0
+selenium-webdriver 4.1.0
+```
