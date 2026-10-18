@@ -1,0 +1,9 @@
+node_modules/
+playwright/test-results/
+playwright/playwright-report/
+playwright/.cache/
+test-results/
+ruby/vendor/
+.bundle/
+.idea/
+vendor/

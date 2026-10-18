@@ -1,65 +1,33 @@
-# Automated test for diki.pl
+# diki.pl translation browser checks
 
-Cucumber/Capybara/Selenium tests for diki.pl — searches for an English word and verifies the Polish translation appears in the results.
+This repository contains two independent browser checks for the same diki.pl search flow. The Ruby suite uses Cucumber, Capybara, and Selenium. The Playwright suite uses Playwright Test. Each implementation is kept in its own folder so you can install and run either one without mixing dependencies.
 
-## What it does
+Both suites open diki.pl, accept the Cookiebot prompt when it appears, search for **ruffle**, and check that **mankiet** appears in the results.
 
-1. Opens https://www.diki.pl in Chrome
-2. Accepts the Cookiebot cookie consent popup ("Akceptuj wszystko")
-3. Searches for the word **ruffle**
-4. Asserts that **mankiet** appears somewhere on the results page
+## Choose a runner
 
-## Prerequisites
+| Runner | Project folder | Setup guide | Run from that folder |
+| --- | --- | --- | --- |
+| Playwright | [`playwright/`](playwright/) | [Playwright guide](playwright/README.md) | `npm test` |
+| Ruby | [`ruby/`](ruby/) | [Ruby guide](ruby/README.md) | `bundle exec cucumber` |
 
-### Ruby
-
-Uses the system Ruby (2.6+). No version manager required.
-
-### ChromeDriver
-
-ChromeDriver must match your installed Chrome version. Download the matching version from:
-https://googlechromelabs.github.io/chrome-for-testing/
-
-Place the binary at `~/bin/chromedriver` and make it executable:
+## Playwright quick start
 
 ```bash
-mkdir -p ~/bin
-cp /path/to/chromedriver ~/bin/chromedriver
-chmod +x ~/bin/chromedriver
-xattr -d com.apple.quarantine ~/bin/chromedriver  # remove macOS Gatekeeper block
+cd playwright
+npm install
+npx playwright install chromium
+npm test
 ```
 
-### Gems
+To watch the browser step by step, use `npx playwright test --debug` from `playwright/`. The Playwright Inspector lets you step through the browser actions.
 
-Install dependencies into the project's `vendor/bundle`:
-
-```bash
-bundle config --local force_ruby_platform true
-bundle install --path vendor/bundle
-```
-
-## Running the tests
-
-From the project root:
+## Ruby quick start
 
 ```bash
+cd ruby
+bundle install
 bundle exec cucumber
 ```
 
-Run a specific feature file:
-
-```bash
-bundle exec cucumber features/open_navigate.feature
-```
-
-## Test environment
-
-```
-macOS (Apple Silicon / arm64)
-Google Chrome 146.x
-ChromeDriver 146.x (from Chrome for Testing)
-Ruby 2.6.x (system)
-cucumber 7.1.0
-capybara 3.36.0
-selenium-webdriver 4.1.0
-```
+See the folder guides for requirements, headed browser options, and troubleshooting.
