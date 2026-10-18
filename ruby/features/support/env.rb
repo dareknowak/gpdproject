@@ -4,7 +4,8 @@ require 'selenium-webdriver'
 
 Capybara.register_driver :selenium_chrome do |app|
   options = Selenium::WebDriver::Chrome::Options.new
-  service = Selenium::WebDriver::Service.chrome(path: File.expand_path('~/bin/chromedriver'))
+  driver_path = ENV['CHROMEDRIVER_PATH']
+  service = driver_path ? Selenium::WebDriver::Service.chrome(path: driver_path) : Selenium::WebDriver::Service.chrome
   Capybara::Selenium::Driver.new(app, browser: :chrome, capabilities: options, service: service)
 end
 
